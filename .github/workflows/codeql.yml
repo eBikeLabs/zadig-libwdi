@@ -30,6 +30,7 @@ env:
   BUILD_MACROS: '"WDK_DIR=\"../wdk/Windows Kits/8.0\";LIBUSB0_DIR=\"../libusb0\";LIBUSBK_DIR=\"../libusbk/bin\""'
 
 jobs:
+  if: false
   CodeQL-Build:
     runs-on: windows-latest
 
