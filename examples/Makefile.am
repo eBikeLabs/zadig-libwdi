@@ -1,6 +1,6 @@
 AM_CPPFLAGS = -I$(top_srcdir)
 
-noinst_PROGRAMS = zadig wdi-simple
+noinst_PROGRAMS = zadig wdi-simple ebikelink-ucan-driver-setup
 
 AM_V_WINDRES_0 = @echo "  RC     $@";$(WINDRES)
 AM_V_WINDRES_1 = $(WINDRES)
@@ -19,3 +19,8 @@ wdi_simple_SOURCES = wdi-simple.c
 wdi_simple_CFLAGS = -I../libwdi $(ARCH_CFLAGS) $(AM_CFLAGS)
 wdi_simple_LDFLAGS = $(AM_LDFLAGS) -static
 wdi_simple_LDADD = wdi-simple_rc.o -L../libwdi/.libs -lwdi
+
+ebikelink_ucan_driver_setup_SOURCES = ebikelink-ucan-driver-setup.c
+ebikelink_ucan_driver_setup_CFLAGS = -I../libwdi $(ARCH_CFLAGS) $(AM_CFLAGS)
+ebikelink_ucan_driver_setup_LDFLAGS = $(AM_LDFLAGS) -static
+ebikelink_ucan_driver_setup_LDADD = ebikelink-ucan-driver-setup_rc.o -L../libwdi/.libs -lwdi
