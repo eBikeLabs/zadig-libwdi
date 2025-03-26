@@ -38,16 +38,6 @@ Name: "{group}\Uninstall YourApplication"; Filename: "{uninstallexe}"
 [Run]
 ; call ebikelink-ucan-driver-setup
 ;
-; -n, --name <name>          set the device name
-; -f, --inf <name>           set the inf name
-; -m, --manufacturer <name>  set the manufacturer name
-; -v, --vid <id>             set the vendor ID (VID)
-; -p, --pid <id>             set the product ID (PID)
-; -i, --iid <id>             set the interface ID (MI)
-; -t, --type <driver_type>   set the driver to install
-;                            (0=WinUSB, 1=libusb0, 2=libusbK, 3=usbser, 4=custom)
-; -d, --dest <dir>           set the extraction directory
-; -x, --extract              extract files only (don't install)
 ; -c, --cert <certname>      install certificate <certname> from the
 ;                            embedded user files as a trusted publisher
 ;     --stealth-cert         installs certificate above without prompting
@@ -59,5 +49,5 @@ Name: "{group}\Uninstall YourApplication"; Filename: "{uninstallexe}"
 ; -l, --log                  set log level (0=debug, 4=none)
 ; -h, --help                 display usage
 ;
-Filename: "{app}\ebikelink-ucan-driver-setup.exe"; Flags: "runhidden"; Parameters: " --name ""XBox Controller"" --vid 0x045e --pid 0x0289 --progressbar={wizardhwnd} --timeout 120000"; StatusMsg: "Installing YourApplication driver (this may take a few seconds) ...";
+Filename: "{app}\ebikelink-ucan-driver-setup.exe"; Flags: "runhidden"; Parameters: " --progressbar={wizardhwnd} --timeout 120000"; StatusMsg: "Installing YourApplication driver (this may take a few seconds) ...";
 

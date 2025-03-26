@@ -50,21 +50,6 @@
 void usage(void)
 {
 	printf("\n");
-	printf("-n, --name <name>          set the device name\n");
-	printf("-f, --inf <name>           set the inf name\n");
-	printf("-m, --manufacturer <name>  set the manufacturer name\n");
-	printf("-v, --vid <id>             set the vendor ID (VID, use 0x prefix for hex)\n");
-	printf("-p, --pid <id>             set the product ID (PID, use 0x prefix for hex)\n");
-	printf("-i, --iid <id>             set the interface ID (MI)\n");
-	printf("-t, --type <driver_type>   set the driver to install\n");
-	printf("                           (0=WinUSB, 1=libusb-win32, 2=libusbK, 3=usbser, 4=custom)\n");
-	printf("-w, --wcid                 use a WCID driver instead of a device-specific\n");
-	printf("                           one (WinUSB, libusb-win32 or libusbK only)\n");
-	printf("    --filter               use the libusb-win32 filter driver (requires -t1)\n");
-	printf("-d, --dest <dir>           set the extraction directory\n");
-	printf("-e, --external <path>      use the external inf specified by <path> as source\n");
-	printf("                           (overrides the internal embedded inf)\n");
-	printf("-x, --extract              extract files only (don't install)\n");
 	printf("-c, --cert <certname>      install certificate <certname> from the\n");
 	printf("                           embedded user files as a trusted publisher\n");
 	printf("    --stealth-cert         installs certificate above without prompting\n");
@@ -108,18 +93,7 @@ int __cdecl main(int argc, char** argv)
 	char *cert_name = NULL;
 
 	static struct option long_options[] = {
-		{"name", required_argument, 0, 'n'},
-		{"inf", required_argument, 0, 'f'},
-		{"manufacturer", required_argument, 0, 'm'},
-		{"vid", required_argument, 0, 'v'},
-		{"pid", required_argument, 0, 'p'},
-		{"iid", required_argument, 0, 'i'},
-		{"type", required_argument, 0, 't'},
-		{"filter", no_argument, 0, 2},
-		{"wcid", no_argument, 0, 'w'},
-		{"dest", required_argument, 0, 'd'},
 		{"cert", required_argument, 0, 'c'},
-		{"extract", no_argument, 0, 'x'},
 		{"silent", no_argument, 0, 's'},
 		{"stealth-cert", no_argument, 0, 1},
 		{"progressbar", optional_argument, 0, 'b'},
@@ -137,15 +111,12 @@ int __cdecl main(int argc, char** argv)
 
 	while(1)
 	{
-		c = getopt_long(argc, argv, "bc:d:e:f:hi:l:m:n:o:p:st:v:wx", long_options, NULL);
+		c = getopt_long(argc, argv, "bc:hl:o:s", long_options, NULL);
 		if (c == -1)
 			break;
 		switch(c) {
 		case 1: // --stealth-cert
 			oic.disable_warning = TRUE;
-			break;
-		case 2: // --filter
-			oid.install_filter_driver = TRUE;
 			break;
 		case 'b':
 			oid.hWnd = (optarg) ? (HWND)(uintptr_t)strtol(optarg, NULL, 0) : GetConsoleHwnd();
@@ -154,54 +125,19 @@ int __cdecl main(int argc, char** argv)
 		case 'c':
 			cert_name = optarg;
 			break;
-		case 'd':
-			ext_dir = optarg;
-			break;
-		case 'e':
-			inf_name = optarg;
-			opd.external_inf = TRUE;
-			break;
-		case 'f':
-			inf_name = optarg;
-			break;
 		case 'h':
 			usage();
 			exit(0);
 			break;
-		case 'i':
-			dev.is_composite = TRUE;
-			dev.mi = (unsigned char)strtol(optarg, NULL, 0);
-			break;
 		case 'l':
 			log_level = (int)strtol(optarg, NULL, 0);
-			break;
-		case 'm':
-			opd.vendor_name = optarg;
-			break;
-		case 'n':
-			dev.desc = optarg;
 			break;
 		case 'o':
 			oid.pending_install_timeout = (DWORD)strtoul(optarg, NULL, 0);
 			break;
-		case 'p':
-			dev.pid = (unsigned short)strtol(optarg, NULL, 0);
-			break;
 		case 's':
 			opt_silent = 1;
 			log_level = WDI_LOG_LEVEL_NONE;
-			break;
-		case 't':
-			opd.driver_type = (int)strtol(optarg, NULL, 0);
-			break;
-		case 'v':
-			dev.vid = (unsigned short)strtol(optarg, NULL, 0);
-			break;
-		case 'w':
-			opd.use_wcid_driver = TRUE;
-			break;
-		case 'x':
-			opt_extract = 1;
 			break;
 		default:
 			usage();
