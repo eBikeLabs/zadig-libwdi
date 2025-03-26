@@ -15,10 +15,10 @@
   !define MUI_FINISHPAGE_NOAUTOCLOSE
 
 ; General
-  Name                  "libwdi-example"
-  OutFile               "libwdi-example-setup.exe"
-  InstallDir            $PROGRAMFILES\libwdi-example
-  InstallDirRegKey      HKLM "Software\libwdi-example" "Install_Dir"
+  Name                  "ebikelink-ucan-driver-setup"
+  OutFile               "ebikelink-ucan-driver-setup-setup.exe"
+  InstallDir            $PROGRAMFILES\ebikelink-ucan-driver-setup
+  InstallDirRegKey      HKLM "Software\ebikelink-ucan-driver-setup" "Install_Dir"
   ShowInstDetails       show
   RequestExecutionLevel admin
 
@@ -32,15 +32,15 @@
   !insertmacro MUI_LANGUAGE "English"
 
 ; Installer
-Section "libwdi-example" SecDummy
+Section "ebikelink-ucan-driver-setup" SecDummy
   SetOutPath $INSTDIR
   File "ebikelink-ucan-driver-setup.exe"
-  WriteRegStr HKLM SOFTWARE\libwdi-example "Install_Dir" "$INSTDIR"
+  WriteRegStr HKLM SOFTWARE\ebikelink-ucan-driver-setup "Install_Dir" "$INSTDIR"
   ; Write the uninstall keys for Windows
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\libwdi-example" "DisplayName" "libwdi example"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\libwdi-example" "UninstallString" '"$INSTDIR\uninstall.exe"'
-  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\libwdi-example" "NoModify" 1
-  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\libwdi-example" "NoRepair" 1
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ebikelink-ucan-driver-setup" "DisplayName" "ebikelink ucan driver setup"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ebikelink-ucan-driver-setup" "UninstallString" '"$INSTDIR\uninstall.exe"'
+  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ebikelink-ucan-driver-setup" "NoModify" 1
+  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ebikelink-ucan-driver-setup" "NoRepair" 1
   WriteUninstaller "uninstall.exe"
 SectionEnd
 
@@ -63,10 +63,10 @@ SectionEnd
 
 ; Uninstaller
 Section "Uninstall"
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\libwdi-example"
-  DeleteRegKey HKLM SOFTWARE\libwdi-example
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ebikelink-ucan-driver-setup"
+  DeleteRegKey HKLM SOFTWARE\ebikelink-ucan-driver-setup
   Delete $INSTDIR\ebikelink-ucan-driver-setup.exe
   Delete $INSTDIR\uninstall.exe
-  RMDir "$SMPROGRAMS\libwdi-example"
+  RMDir "$SMPROGRAMS\ebikelink-ucan-driver-setup"
   RMDir "$INSTDIR"
 SectionEnd
