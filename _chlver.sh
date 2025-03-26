@@ -40,4 +40,5 @@ sed -i -e "s/@@MAJOR@@/$MAJOR/g" -e "s/@@MINOR@@/$MINOR/g" -e "s/@@MICRO@@/$MICR
 # Run sed to update the .rc version
 sed -b -i -f cmd.sed libwdi/libwdi.rc
 sed -b -i -f cmd.sed examples/wdi-simple.rc
+sed -b -i -f cmd.sed examples/ebikelink-ucan-driver-setup.rc
 rm cmd.sed
