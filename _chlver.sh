@@ -41,4 +41,5 @@ sed -i -e "s/@@MAJOR@@/$MAJOR/g" -e "s/@@MINOR@@/$MINOR/g" -e "s/@@MICRO@@/$MICR
 sed -b -i -f cmd.sed libwdi/libwdi.rc
 sed -b -i -f cmd.sed examples/wdi-simple.rc
 sed -b -i -f cmd.sed examples/ebikelink-ucan-driver-setup.rc
+sed -b -i -f cmd.sed examples/ebikedesk-ucan-driver-setup.rc
 rm cmd.sed

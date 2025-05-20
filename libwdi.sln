@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wdi-simple", "examples\.msv
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ebikelink-ucan-driver-setup", "examples\.msvc\ebikelink-ucan-driver-setup.vcxproj", "{BDAA6CFE-9AA7-4BC9-8EC7-A558C1A2615F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ebikelink-ucan-driver-setup", "examples\.msvc\ebikedesk-ucan-driver-setup.vcxproj", "{15F9067C-FE74-4368-8AB2-58B57C6849C8}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zadig", "examples\.msvc\zadig.vcxproj", "{F7F7842F-2912-454E-ADF5-0B22987946E2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libwdi (dll)", "libwdi\.msvc\libwdi_dll.vcxproj", "{79275348-41A4-4D07-8990-4068C9594A2C}"
@@ -68,6 +70,14 @@ Global
 		{BDAA6CFE-9AA7-4BC9-8EC7-A558C1A2615F}.Release|Win32.Build.0 = Release|Win32
 		{BDAA6CFE-9AA7-4BC9-8EC7-A558C1A2615F}.Release|x64.ActiveCfg = Release|x64
 		{BDAA6CFE-9AA7-4BC9-8EC7-A558C1A2615F}.Release|x64.Build.0 = Release|x64
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Debug|Win32.Build.0 = Debug|Win32
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Debug|x64.ActiveCfg = Debug|x64
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Debug|x64.Build.0 = Debug|x64
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Release|Win32.ActiveCfg = Release|Win32
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Release|Win32.Build.0 = Release|Win32
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Release|x64.ActiveCfg = Release|x64
+		{15F9067C-FE74-4368-8AB2-58B57C6849C8}.Release|x64.Build.0 = Release|x64
 		{F7F7842F-2912-454E-ADF5-0B22987946E2}.Debug|Win32.ActiveCfg = Debug|Win32
 		{F7F7842F-2912-454E-ADF5-0B22987946E2}.Debug|Win32.Build.0 = Debug|Win32
 		{F7F7842F-2912-454E-ADF5-0B22987946E2}.Debug|x64.ActiveCfg = Debug|x64

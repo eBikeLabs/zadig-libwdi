@@ -52,11 +52,13 @@ sed -i -e "s/@@BUILD@@/$BUILD/g" _zadig.sed
 sed -b -i -f _library.sed libwdi/libwdi.rc
 sed -b -i -f _library.sed examples/wdi-simple.rc
 sed -b -i -f _library.sed examples/ebikelink-ucan-driver-setup.rc
+sed -b -i -f _library.sed examples/ebikedesk-ucan-driver-setup.rc
 # SED is an ass when it comes to replacing at the end of a line and preserving the EOL sequence
 unix2dos -q libwdi/libwdi.rc
 unix2dos -q examples/wdi-simple.rc
 unix2dos -q examples/ebikelink-ucan-driver-setup.rc
+unix2dos -q examples/ebikedesk-ucan-driver-setup.rc
 sed -b -i -f _zadig.sed examples/zadig.rc
 sed -b -i -f _zadig.sed examples/zadig.h
 rm _library.sed _zadig.sed
-git add libwdi/libwdi.rc examples/zadig.rc examples/zadig.h examples/wdi-simple.rc examples/ebikelink-ucan-driver-setup.rc
+git add libwdi/libwdi.rc examples/zadig.rc examples/zadig.h examples/wdi-simple.rc examples/ebikelink-ucan-driver-setup.rc examples/ebikedesk-ucan-driver-setup.rc
