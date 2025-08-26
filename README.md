@@ -42,3 +42,13 @@ FAQ
 ---
 
 See: https://github.com/pbatard/libwdi/wiki/FAQ
+
+eBikeLabs specifics
+-------------------
+
+We have created 2 self contained executable which prevent the user from selecting potentially
+wrong options from the Zadig UI interface both for CandleLight/eBikeDesk compatible dongles
+but also for slacn/eBikeLink compatible ones.
+
+The automated GitHub Actions CI process will automatically build a complete VS2022.zip archive
+containing all the bits for different windows architectures (32/64 bits).
